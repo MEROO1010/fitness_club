@@ -39,25 +39,3 @@ class VerifyCodeView(View):
             return JsonResponse({'status': 'success'})
         else:
             return JsonResponse({'status': 'error', 'message': 'Invalid verification code'})
-        
-
-######################################################################################################
-       # from django.http import JsonResponse
-from django.views import View
-from django.utils.decorators import method_decorator
-from django.views.decorators.csrf import csrf_exempt
-import json
-
-@method_decorator(csrf_exempt, name='dispatch')
-class VerifyPhoneNumberView(View):
-    def post(self, request):
-        data = json.loads(request.body)
-        phone_number = data.get('phone_number')
-
-        # Here you can add your logic to verify the phone number
-        # For example, sending an OTP to the phone number
-
-        if phone_number:  # Replace with actual verification logic
-            return JsonResponse({'message': 'Phone number verified successfully!'}, status=200)
-        else:
-            return JsonResponse({'error': 'Invalid phone number'}, status=400)

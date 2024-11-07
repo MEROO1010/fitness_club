@@ -18,5 +18,5 @@ from django.contrib import admin
 from django.urls import path
 
 urlpatterns = [
-    path('verify-phone/', VerifyPhoneNumberView.as_view(), name='verify-phone'),
+    path("admin/", admin.site.urls),
 ]
